@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sixatomic
+  namespace: default
+spec:
+  rules:
+    - host: sixatomic.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sixatomic
+                port:
+                  number: 80
